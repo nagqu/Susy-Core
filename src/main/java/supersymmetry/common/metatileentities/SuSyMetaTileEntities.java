@@ -32,6 +32,7 @@ import supersymmetry.common.metatileentities.single.storage.MetaTileEntityCryoDr
 import supersymmetry.common.metatileentities.single.steam.SuSySimpleSteamMetaTileEntity;
 import supersymmetry.common.metatileentities.multi.electric.MetaTileEntityReverberatoryFurnace;
 import supersymmetry.common.metatileentities.multi.electric.MetaTileEntityHighTemperatureDistillationTower;
+import supersymmetry.common.metatileentities.multi.electric.MetaTileEntityResearchComputer;
 
 import java.util.function.Function;
 
@@ -142,6 +143,8 @@ public class SuSyMetaTileEntities {
     public static SimpleMachineMetaTileEntity[] ELECTROSTATIC_SEPARATOR;
     public static SimpleMachineMetaTileEntity[] TEXTILE_SPINNER;
     public static SimpleMachineMetaTileEntity[] POLISHING_MACHINE;
+
+    public static MetaTileEntityResearchComputer RESEARCH_COMPUTER;
 
     public static void init() {
         MAGNETIC_REFRIGERATOR = registerMetaTileEntity(14500, new MetaTileEntityMagneticRefrigerator(susyId("magnetic_refrigerator")));
@@ -263,6 +266,9 @@ public class SuSyMetaTileEntities {
         registerSimpleMTE(ELECTROSTATIC_SEPARATOR, 12, 17035, "electrostatic_separator", SuSyRecipeMaps.ELECTROSTATIC_SEPARATOR, SusyTextures.ELECTROSTATIC_SEPARATOR_OVERLAY, true, GTUtility.defaultTankSizeFunction);
         registerSimpleMTE(POLISHING_MACHINE, 12, 17048, "polishing_machine", SuSyRecipeMaps.POLISHING_MACHINE, SusyTextures.POLISHING_MACHINE_OVERLAY, true, GTUtility.defaultTankSizeFunction);
         registerSimpleMTE(TEXTILE_SPINNER, 12, 17061, "textile_spinner", SuSyRecipeMaps.SPINNING_RECIPES, SusyTextures.TEXTILE_SPINNER_OVERLAY, true);
+
+        //compchem stuff
+        RESEARCH_COMPUTER = registerMetaTileEntity(17074, new MetaTileEntityResearchComputer(susyId("research_computer")));
     }
 
     private static void registerSimpleSteamMTE(SuSySimpleSteamMetaTileEntity[] machines, int startId, String name, RecipeMap<?> recipeMap, SuSySteamProgressIndicator progressIndicator, ICubeRenderer texture, boolean isBricked) {
